@@ -135,18 +135,18 @@ Section "ZBar Core Files (required)" SecCore
 
     SetOutPath $INSTDIR\bin
     File bin\libzbar-0.dll
-    File bin\zbarimg.exe
-    File bin\zbarcam.exe
+    #File bin\zbarimg.exe
+    #File bin\zbarcam.exe
 
     # dependencies
-    File ${PREFIX}\bin\zlib1.dll
+    #File ${PREFIX}\bin\zlib1.dll
     File ${PREFIX}\bin\libjpeg-7.dll
-    File ${PREFIX}\bin\libpng12-0.dll
-    File ${PREFIX}\bin\libtiff-3.dll
-    File ${PREFIX}\bin\libxml2-2.dll
+    #File ${PREFIX}\bin\libpng12-0.dll
+    #File ${PREFIX}\bin\libtiff-3.dll
+    #File ${PREFIX}\bin\libxml2-2.dll
     File ${PREFIX}\bin\libiconv-2.dll
-    File ${PREFIX}\bin\libMagickCore-2.dll
-    File ${PREFIX}\bin\libMagickWand-2.dll
+    #File ${PREFIX}\bin\libMagickCore-2.dll
+    #File ${PREFIX}\bin\libMagickWand-2.dll
 
     FileOpen $0 zbarcam.bat w
     FileWrite $0 "@set PATH=%PATH%;$INSTDIR\bin$\n"
