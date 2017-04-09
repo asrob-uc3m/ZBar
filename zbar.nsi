@@ -140,7 +140,7 @@ Section "ZBar Core Files (required)" SecCore
 
     # dependencies
     #File ${PREFIX}\bin\zlib1.dll
-    File ${PREFIX}\bin\libjpeg-7.dll
+    File ${PREFIX}\bin\libjpeg-8.dll
     #File ${PREFIX}\bin\libpng12-0.dll
     #File ${PREFIX}\bin\libtiff-3.dll
     #File ${PREFIX}\bin\libxml2-2.dll
