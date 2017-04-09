@@ -39,8 +39,8 @@
 
 SetCompressor /SOLID bzip2
 
-InstType "Typical"
 InstType "Full"
+InstType "Typical"
 
 InstallDir $PROGRAMFILES\ZBar
 InstallDirRegKey HKLM ${ZBAR_KEY} "InstallDir"
@@ -203,7 +203,7 @@ SectionEnd
 
 Section "Development Headers and Libraries" SecDevel
     DetailPrint "Installing ZBar Development Files..."
-    SectionIn 2
+    SectionIn 1
 
     SetOutPath $INSTDIR\include
     File include\zbar.h
