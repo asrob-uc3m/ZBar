@@ -161,10 +161,10 @@ Section "ZBar Core Files (required)" SecCore
     FileClose $0
 
     SetOutPath $INSTDIR\doc
-    File share\doc\zbar\html\*
+    #File share\doc\zbar\html\*
 
     SetOutPath $INSTDIR\examples
-    File share\zbar\barcode.png
+    #File share\zbar\barcode.png
 SectionEnd
 
 #SectionGroup "Start Menu and Desktop Shortcuts" SecShortcuts
