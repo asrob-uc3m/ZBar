@@ -31,7 +31,11 @@
 !define ZBAR_KEY "Software\ZBar"
 !define UNINSTALL_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\ZBar"
 
-OutFile zbar-${VERSION}-setup.exe
+!ifdef HOST_CPU
+  OutFile zbar-${VERSION}-${HOST_CPU}-setup.exe
+!else
+  OutFile zbar-${VERSION}-setup.exe
+!endif
 
 SetCompressor /SOLID bzip2
 
