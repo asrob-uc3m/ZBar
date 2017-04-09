@@ -83,7 +83,7 @@ dist-nsis: html-local
 	  && $(MAKE) $(AM_MAKEFLAGS) DESTDIR=$$tmpinst prefix=/ install
 	cp zbar/.libs/libzbar-0.dll.def _nsis/lib/libzbar-0.def
 	cp -r doc/html _nsis/share/doc/zbar/ || echo 'FIXME docs'
-	libexearch=`[[ $(host_cpu) = 'x64' ]] && echo 'x64' || echo 'x86'` \
+	libexearch=`[[ $(host_cpu) = 'x86_64' ]] && echo 'x64' || echo 'x86'` \
 	  && $(WINEXEC) lib.exe /machine:$$libexearch /def:_nsis/lib/libzbar-0.def \
 	  /out:_nsis/lib/libzbar-0.lib
 	cd _nsis && \
