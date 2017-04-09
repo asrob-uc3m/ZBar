@@ -151,6 +151,7 @@ Section "ZBar Core Files (required)" SecCore
     File ${PREFIX}\bin\libiconv-2.dll
     #File ${PREFIX}\bin\libMagickCore-2.dll
     #File ${PREFIX}\bin\libMagickWand-2.dll
+	File ${PREFIX}\bin\libwinpthread-1.dll
 
     FileOpen $0 zbarcam.bat w
     FileWrite $0 "@set PATH=%PATH%;$INSTDIR\bin$\n"
