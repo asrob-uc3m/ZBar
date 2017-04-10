@@ -3,7 +3,7 @@ AC_PREREQ([2.61])
 AC_INIT([zbar], [0.10], [spadix@users.sourceforge.net])
 AC_CONFIG_AUX_DIR(config)
 AC_CONFIG_MACRO_DIR(config)
-AM_INIT_AUTOMAKE([1.10 -Wall -Werror foreign subdir-objects std-options dist-bzip2])
+AM_INIT_AUTOMAKE([1.10 -Wall foreign subdir-objects std-options dist-bzip2])
 AC_CONFIG_HEADERS([include/config.h])
 AC_CONFIG_SRCDIR(zbar/scanner.c)
 LT_PREREQ([2.2])
@@ -21,8 +21,9 @@ dnl   - If any interfaces have been added since the last public release,
 dnl     then increment age.
 dnl   - If any interfaces have been removed since the last public release,
 dnl     then set age to 0. 
-AC_SUBST([LIB_VERSION], [2:0:2])
-AC_SUBST([RELDATE], [2009-10-23])
+AC_SUBST([RD_VERSION], [1])
+AC_SUBST([LIB_VERSION], [2:1:2])
+AC_SUBST([RELDATE], [2017-04-10])
 
 dnl widget libraries use their own versioning.
 dnl NB pygtk wrapper is *unversioned*

@@ -31,12 +31,16 @@
 !define ZBAR_KEY "Software\ZBar"
 !define UNINSTALL_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\ZBar"
 
-OutFile zbar-${VERSION}-setup.exe
+!ifdef HOST_CPU
+  OutFile zbar-${VERSION}-${HOST_CPU}-setup.exe
+!else
+  OutFile zbar-${VERSION}-setup.exe
+!endif
 
 SetCompressor /SOLID bzip2
 
-InstType "Typical"
 InstType "Full"
+InstType "Typical"
 
 InstallDir $PROGRAMFILES\ZBar
 InstallDirRegKey HKLM ${ZBAR_KEY} "InstallDir"
@@ -135,18 +139,24 @@ Section "ZBar Core Files (required)" SecCore
 
     SetOutPath $INSTDIR\bin
     File bin\libzbar-0.dll
-    File bin\zbarimg.exe
-    File bin\zbarcam.exe
+    #File bin\zbarimg.exe
+    #File bin\zbarcam.exe
 
     # dependencies
-    File ${PREFIX}\bin\zlib1.dll
-    File ${PREFIX}\bin\libjpeg-7.dll
-    File ${PREFIX}\bin\libpng12-0.dll
-    File ${PREFIX}\bin\libtiff-3.dll
-    File ${PREFIX}\bin\libxml2-2.dll
+    #File ${PREFIX}\bin\zlib1.dll
+    File ${PREFIX}\bin\libjpeg-8.dll
+    #File ${PREFIX}\bin\libpng12-0.dll
+    #File ${PREFIX}\bin\libtiff-3.dll
+    #File ${PREFIX}\bin\libxml2-2.dll
     File ${PREFIX}\bin\libiconv-2.dll
-    File ${PREFIX}\bin\libMagickCore-2.dll
-    File ${PREFIX}\bin\libMagickWand-2.dll
+    #File ${PREFIX}\bin\libMagickCore-2.dll
+    #File ${PREFIX}\bin\libMagickWand-2.dll
+    File ${PREFIX}\bin\libwinpthread-1.dll
+
+    # FIXME
+    !if "${HOST_CPU}" == "i686"
+        File ${PREFIX}\bin\libgcc_s_dw2-1.dll
+    !endif
 
     FileOpen $0 zbarcam.bat w
     FileWrite $0 "@set PATH=%PATH%;$INSTDIR\bin$\n"
@@ -161,10 +171,10 @@ Section "ZBar Core Files (required)" SecCore
     FileClose $0
 
     SetOutPath $INSTDIR\doc
-    File share\doc\zbar\html\*
+    #File share\doc\zbar\html\*
 
     SetOutPath $INSTDIR\examples
-    File share\zbar\barcode.png
+    #File share\zbar\barcode.png
 SectionEnd
 
 #SectionGroup "Start Menu and Desktop Shortcuts" SecShortcuts
@@ -193,7 +203,7 @@ SectionEnd
 
 Section "Development Headers and Libraries" SecDevel
     DetailPrint "Installing ZBar Development Files..."
-    SectionIn 2
+    SectionIn 1
 
     SetOutPath $INSTDIR\include
     File include\zbar.h
