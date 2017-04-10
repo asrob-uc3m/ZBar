@@ -23,7 +23,7 @@ dnl   - If any interfaces have been removed since the last public release,
 dnl     then set age to 0. 
 AC_SUBST([RD_VERSION], [1])
 AC_SUBST([LIB_VERSION], [2:1:2])
-AC_SUBST([RELDATE], [2017-04-09])
+AC_SUBST([RELDATE], [2017-04-10])
 
 dnl widget libraries use their own versioning.
 dnl NB pygtk wrapper is *unversioned*
